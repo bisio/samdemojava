@@ -1,0 +1,16 @@
+version: 0.2
+
+phases: 
+   install:
+      runtime-versions:
+         java: corretto11
+      
+      build:
+         commands:
+            -echo Build started on `date`
+            -mvn package
+      artifacts:
+         files:
+            - .getcountriesbycontinent/target/lambda.zip
+            - .getcontinents/target/lambda.zip
+            
