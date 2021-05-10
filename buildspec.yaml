@@ -13,9 +13,9 @@ phases:
      commands:
        - echo Build started on `date`
        - echo Building lambdas
-       - mvn package
-       - sam package --template-file template.yaml --s3-bucket $CF_BUCKET --output-template-file packaged.yaml
-       - sam deploy  --template-file packaged.yaml --s3-bucket $CF_BUCKET --stack-name sam-multi-module-il --capabilities CAPABILITY_IAM --tags Activity=presales Author="Andrea Bisognin" Customer=Innominata project=innominata
+       - mvn --batch-mode package
+       - sam package --template-file template.yaml --s3-bucket scaiitec-bisio-sam-staging-1 --output-template-file packaged.yaml
+       - sam deploy  --template-file packaged.yaml --s3-bucket scaiitec-bisio-sam-staging-1 --stack-name sam-multi-module-il --capabilities CAPABILITY_IAM --tags Activity=presales Author="Andrea Bisognin" Customer=Innominata project=innominata
 #artifacts:
 #  files:
 #    - getcountriesbycontinent/target/lambda.zip
