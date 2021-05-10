@@ -7,8 +7,8 @@ phases:
            
   build:
      commands:
-       -echo Build started on `date`
-       -mvn package
+       - echo Build started on `date`
+       - mvn package
 artifacts:
   files:
     - getcountriesbycontinent/target/lambda.zip
