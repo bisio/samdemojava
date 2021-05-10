@@ -1,16 +1,22 @@
 version: 0.2
 
+env:
+  variables:
+    CF_BUCKET:"scaiitec-bisio-sam-staging-1" 
 phases: 
   install:
     runtime-versions:
       java: corretto11
-           
+      
   build:
      commands:
        - echo Build started on `date`
+       - echo Building lambdas
        - mvn package
-artifacts:
-  files:
-    - getcountriesbycontinent/target/lambda.zip
-    - getcontinents/target/lambda.zip
+       - sam package --template-file template.yaml --s3-bucket $CF_BUCKET --output-template-file packaged.yaml
+       - sam deploy  --template-file packaged.yaml --s3-bucket $CF_BUCKET --stack-name sam-multi-module-il --capabilities CAPABILITY_IAM --tags Activity=presales Author="Andrea Bisognin" Customer=Innominata project=innominata
+#artifacts:
+#  files:
+#    - getcountriesbycontinent/target/lambda.zip
+#    - getcontinents/target/lambda.zip
             
