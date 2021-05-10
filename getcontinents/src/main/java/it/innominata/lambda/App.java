@@ -45,11 +45,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 
 		try {
 			List<Continent> continents =  client.listContinentsByName();
-			
-			System.out.println("size is " + continents.size());
-			System.out.println("Name of first is " + continents.get(0).getName());
-			
-			//OmHelloResponse omresponse = client.hello(objectMapper.readValue(input.getBody(), OmHelloRequest.class));
+						
 			APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent().withHeaders(headers);
 
 			return response.withStatusCode(200).withBody(objectMapper.writeValueAsString(continents));
