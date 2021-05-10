@@ -2,7 +2,8 @@ version: 0.2
 
 env:
   variables:
-    CF_BUCKET:"scaiitec-bisio-sam-staging-1" 
+    CF_BUCKET: "scaiitec-bisio-sam-staging-1"
+     
 phases: 
   install:
     runtime-versions:
