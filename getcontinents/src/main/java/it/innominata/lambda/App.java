@@ -33,7 +33,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 		}
 		
 		client = new ProxyClient();
-		
+		System.out.println("Starting GetContinents Lambda");
 	}
 
 	private final ObjectMapper objectMapper = new ObjectMapper()
@@ -44,6 +44,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 		headers.put("Content-Type", "application/json");
 
 		try {
+			
 			List<Continent> continents =  client.listContinentsByName();
 						
 			APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent().withHeaders(headers);
