@@ -1,0 +1,6 @@
+.project
+.settings
+.aws-sam
+**/target/*
+.classpath
+.factorypath
