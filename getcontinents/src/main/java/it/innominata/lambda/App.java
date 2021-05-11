@@ -24,7 +24,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 	
 	public App() throws IOException {
 		System.out.println("Initializing a new instance");
-		System.out.println("Now integrated with github!");
+		System.out.println("Now integrated with github...");
 		if( System.getenv("DEBUG_SOAP") != null) {
 			System.out.println("Enabling soap debugging");
 			System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
