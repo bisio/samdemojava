@@ -23,9 +23,9 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 	private ProxyClient client;
 	
 	public App() throws IOException {
-		
+		System.out.println("Initializing a new instance");
 		if( System.getenv("DEBUG_SOAP") != null) {
-			System.out.println("Initializing");
+			System.out.println("Enabling soap debugging");
 			System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
 			System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
 			System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
