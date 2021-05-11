@@ -18,6 +18,11 @@ phases:
     commands:
        - sam package --no-progressbar --template-file template.yaml --s3-bucket $CF_BUCKET --output-template-file packaged.yaml
        - sam deploy  --template-file packaged.yaml --s3-bucket $CF_BUCKET --stack-name sam-multi-module-il --capabilities CAPABILITY_IAM --tags Activity=presales Author="Andrea Bisognin" Customer=Innominata project=innominata
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
+    - '.aws-sam/**/*'
 #artifacts:
 #  files:
 #    - getcountriesbycontinent/target/lambda.zip
